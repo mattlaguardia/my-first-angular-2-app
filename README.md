@@ -1,3 +1,5 @@
 # my-first-angular-2-app
 
-under construction
+Learning and testing out the new things in Angular 2. 
+
+**still under construction**
