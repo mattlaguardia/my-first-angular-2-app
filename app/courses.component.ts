@@ -14,7 +14,7 @@ import { AutoGrowDirective } from './auto-grow.directive'
       </li>
     </ul>
   `,
-  providers: [CourseService]
+  providers: [ CourseService ]
 })
 
 export class CoursesComponent {

@@ -1,4 +1,4 @@
-System.register(["@angular/core"], function (exports_1, context_1) {
+System.register(["@angular/core", "./author.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,28 +10,34 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, AppComponent;
+    var core_1, author_service_1, AuthorsComponent;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (author_service_1_1) {
+                author_service_1 = author_service_1_1;
             }
         ],
         execute: function () {
-            AppComponent = (function () {
-                function AppComponent() {
+            AuthorsComponent = (function () {
+                function AuthorsComponent(authorService) {
+                    this.title = "Title for the authros page";
+                    this.authors = authorService.getAuthors();
                 }
-                return AppComponent;
+                return AuthorsComponent;
             }());
-            AppComponent = __decorate([
+            AuthorsComponent = __decorate([
                 core_1.Component({
-                    selector: 'my-app',
-                    template: '<h1>Hello Angular!</h1><courses></courses><authors></authors>'
+                    selector: 'authors',
+                    template: "\n    <h2>Authors</h2>\n    {{ title }}\n    <ul>\n      <li *ngFor=\"#author of authors\">\n        {{ author }}\n      </li>\n    </ul>\n  ",
+                    providers: [author_service_1.AuthorService]
                 }),
-                __metadata("design:paramtypes", [])
-            ], AppComponent);
-            exports_1("AppComponent", AppComponent);
+                __metadata("design:paramtypes", [author_service_1.AuthorService])
+            ], AuthorsComponent);
+            exports_1("AuthorsComponent", AuthorsComponent);
         }
     };
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=authors.component.js.map
